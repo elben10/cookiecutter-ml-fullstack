@@ -1,0 +1,21 @@
+name: CI/CD
+on: [push]
+
+jobs:
+  test:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Add poetry path
+        run: |
+          echo ::add-path::$HOME/.poetry/bin
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install poetry
+        run: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+      - name: Run testing script
+        run: ./scripts/test.sh
