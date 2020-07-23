@@ -19,3 +19,5 @@ cookiecutter https://github.com/elben10/cookiecutter-ml-fullstack
 ## Release Notes:
 
 ### 0.1.0
+
+- Add testing script, Readme and CI/CD [#1](https://github.com/elben10/cookiecutter-ml-fullstack/pull/1)
