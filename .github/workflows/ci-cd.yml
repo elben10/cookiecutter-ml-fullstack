@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Add poetry path
         run: |
           echo ::add-path::$HOME/.poetry/bin
       - name: Setup python
