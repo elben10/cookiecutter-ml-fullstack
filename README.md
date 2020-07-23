@@ -1,3 +1,5 @@
+[![CI/CD](https://github.com/elben10/cookiecutter-ml-fullstack/workflows/CI/CD/badge.svg)](https://github.com/elben10/cookiecutter-ml-fullstack/actions?query=workflow%3ACI%2FCD)
+
 # Cookiecutter ML Fullstack
 
 ## FEATURES
