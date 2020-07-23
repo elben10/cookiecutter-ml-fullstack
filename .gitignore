@@ -1,4 +1,5 @@
 dev-link/
+mirror-cmlf/
+testing-project/
 poetry.lock
 .vscode
-testing-project

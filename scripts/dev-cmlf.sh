@@ -11,18 +11,22 @@ set -e
 # This allows developing with a live stack while keeping the same source code
 # Without having to generate dev-fsfp and integrating back all the files
 
-rm -rf dev-link
-mkdir -p tmp-dev-link/frontend
+PROJECT_NAME="Dev Link"
+PROJECT_DIRECTORY=$(echo $PROJECT_NAME | awk '{print tolower($0)}' | awk  '{ gsub(" ","-",$0); print $0 }')
 
-cookiecutter --no-input -f ./ project_name="Dev Link"
+mkdir -p tmp-$PROJECT_DIRECTORY/frontend
 
-mv ./dev-link/.env ./tmp-dev-link/
-# mv ./dev-link/frontend/.env ./tmp-dev-link/frontend/
+rm -rf $PROJECT_DIRECTORY
 
-rm -rf ./dev-link/
-mkdir -p ./dev-link/
+cookiecutter --no-input -f ./ project_name="${PROJECT_NAME}"
 
-cd ./dev-link/
+mv ./$PROJECT_DIRECTORY/.env ./tmp-$PROJECT_DIRECTORY/
+# mv ./$PROJECT_DIRECTORY/frontend/.env ./tmp-$PROJECT_DIRECTORY/frontend/
+
+rm -rf ./$PROJECT_DIRECTORY/
+mkdir -p ./$PROJECT_DIRECTORY/
+
+cd ./$PROJECT_DIRECTORY/
 
 for f in ../\{\{cookiecutter.project_slug\}\}/* ; do
     ln -s "$f" ./
@@ -30,7 +34,7 @@ done
 
 cd ..
 
-mv ./tmp-dev-link/.env ./dev-link/
-# mv ./tmp-dev-link/frontend/.env ./dev-link/frontend/
+mv ./tmp-$PROJECT_DIRECTORY/.env ./$PROJECT_DIRECTORY/
+# # mv ./tmp-$PROJECT_DIRECTORY/frontend/.env ./$PROJECT_DIRECTORY/frontend/
 
-rm -rf ./tmp-dev-link
+rm -rf ./tmp-$PROJECT_DIRECTORY

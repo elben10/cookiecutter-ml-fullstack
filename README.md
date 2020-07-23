@@ -20,4 +20,5 @@ cookiecutter https://github.com/elben10/cookiecutter-ml-fullstack
 
 ### 0.1.0
 
+- Add development scripts + CI/CD for the generated project [#2](https://github.com/elben10/cookiecutter-ml-fullstack/pull/2)
 - Add testing script, Readme and CI/CD [#1](https://github.com/elben10/cookiecutter-ml-fullstack/pull/1)
